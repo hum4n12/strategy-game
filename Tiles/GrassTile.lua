@@ -1,11 +1,11 @@
 local Tile = require '../Tile'
+local utils = require 'utils'
 
 return {
     new = function (x,y,size,sprite)
         local tile = Tile.new(x,y,size,sprite)
-        print(sprite)
         if sprite ~= nil then
-            tile.quad = love.graphics.newQuad(0,0,32,48,sprite:getWidth(),sprite:getHeight())
+            tile.quad = utils.getTileImage(sprite,TILES_LIST.GRASS)
         end
 
         return tile
